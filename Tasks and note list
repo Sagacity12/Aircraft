@@ -1,0 +1,86 @@
+Task List
+To achieve the above objectives, you will complete the following tasks:
+
+Task 1: Create a valid_generator using the valid_datagen object
+Task 2: Create a test_generator using the test_datagen object
+Task 3: Load the VGG16 model
+Task 4: Compile the model
+Task 5: Train the model
+Task 6: Plot accuracy curves for training and validation sets
+Task 7: Visualizing the results
+Task 8: Implement a Helper Function to Use the Custom Keras Layer
+Task 9: Generate a caption for an image using the using BLIP pretrained model
+Task 10: Generate a summary of an image using BLIP pretrained model
+
+Pretrained Model
+A pretrained model refers to a machine learning model that has already been trained on a large dataset, typically for a specific task, and is ready for use or fine-tuning on a new task or dataset.
+The key idea behind a pretrained model is that it has already learned useful patterns or features from the data it was trained on, so you don’t need to start from scratch.
+
+ResNet, VGG (Image Classification):
+These are pretrained models commonly used for image classification tasks.
+ They have learned from millions of images and can be fine-tuned for specific image-related tasks.
+
+BLIP (Image Captioning and Summarization):
+ BLIP is a pretrained model that can generate captions and summaries for images.
+ It has already been trained on image-text pairs, so it can easily generate descriptive captions for new images.
+
+ Part 1 -
+Classification Problem: Classifying the defect on the aircraft as 'dent' or 'crack'
+1.1 Dataset Preparation
+The first step is to load and prepare the dataset of aircraft images. These images are labeled either as 'dent' or 'crack'.
+We will also split the dataset into training, validation, and test sets.
+
+goal is to train an algorithm on these images and to predict the labels for images in your test set.
+
+Define configuration options
+
+It's time to define some model configuration options.
+
+Set the batch size is set to 32.
+Set the number of epcohs is 5.
+
+## 1.2 Data Preprocessing
+
+Create data generators for training, validation, and testing datasets.
+
+First,we will create ImageDataGenerators used for training, validation and testing.
+The ImageDataGenerator class is part of Keras.
+It is a powerful utility for real-time image data augmentation, preprocessing, and feeding data into deep learning models during training. This class is particularly useful when working with image datasets that are too large to fit into memory all at once, or when you want to augment your dataset  to improve model generalization.
+
+We will create instances of the ImageDataGenerator class. Each instance corresponds to one of the datasets: training, validation, and testing.
+
+Part 2:
+Image Captioning and Summarization using BLIP Pretrained Model
+BLIP (Bootstrapping Language-Image Pretraining) is an advanced vision-and-language model designed to generate natural language descriptions for images.
+By leveraging both visual and textual information, BLIP can produce human-readable text that accurately reflects the content and context of an image.
+It is specifically trained to understand images and their relationships to summarizing text, making it ideal for tasks like image captioning, summarization, and visual question answering.
+
+In this project, learners will utilize the BLIP model to build a system capable of automatically generating captions and summary for images.
+The code will integrate the BLIP model within a custom Keras layer. This allows the user to input an image and specify a task, either "caption" or "summary", to receive a textual output that describes or summarizes the content of the image.
+
+Key Steps:
+Image Loading and Preprocessing: The code will begin by loading images from a file path, then converting and processing them into a format suitable for input to the BLIP model.
+
+Text Generation: Depending on the task, whether generating a caption or summary, the BLIP model will generate corresponding text based on the processed image.
+
+Custom Keras Layer: A custom Keras layer is a user-defined layer that extends Keras' built-in functionality.
+Here custom Keras layer will be implemented to wrap the BLIP model.
+This layer will handle the task-specific processing (captioning or summarizing) and integrate smoothly into a TensorFlow/Keras environment.
+
+Key Steps:
+Image Loading and Preprocessing: The code will begin by loading images from a file path, then converting and processing them into a format suitable for input to the BLIP model.
+
+Text Generation: Depending on the task, whether generating a caption or summary, the BLIP model will generate corresponding text based on the processed image.
+
+Custom Keras Layer: A custom Keras layer is a user-defined layer that extends Keras' built-in functionality.Here custom Keras layer will be implemented to wrap the BLIP model.
+This layer will handle the task-specific processing (captioning or summarizing) and integrate smoothly into a TensorFlow/Keras environment.
+
+Loading BLIP Model
+Load the BLIP Model and Processor from Hugging Face
+Hugging Face is an open-source platform that provides pre-trained machine learning models, datasets, and tools, primarily focused on natural language processing, computer vision, and other AI tasks.
+It offers easy access to powerful models through its Transformers library.
+
+BlipProcessor: This handles the preprocessing of images and text.
+It converts images to the format that the BLIP model can understand.
+
+BlipForConditionalGeneration: This is the model itself, responsible for generating captions or summaries based on the processed image.
